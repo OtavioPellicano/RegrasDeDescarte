@@ -1,0 +1,3 @@
+[submodule "ipv4_class"]
+	path = ipv4_class
+	url = https://github.com/OtavioPellicano/ipv4_class.git
