@@ -5,9 +5,7 @@ namespace opmm {
 ValidacaoCamposEsperadosHDM::ValidacaoCamposEsperadosHDM(const QString &medicao, const arquivoHDM &tipoArquivoHDM)
     :mSep(","), mTipoArquivoHDM(tipoArquivoHDM)
 {
-
     setMedicaoValida(parametroValido(medicao) || cabecalhoValido(medicao));
-
 }
 
 bool ValidacaoCamposEsperadosHDM::cabecalhoValido(const QString &medicao) throw(QString)
@@ -66,15 +64,11 @@ bool ValidacaoCamposEsperadosHDM::cabecalhoValido(const QString &medicao) throw(
         break;
     }
 
-
-
-
 }
 
 bool ValidacaoCamposEsperadosHDM::parametroValido(const QString &medicao)
 {
     bool ok[6];
-
     mAvailSuccesses = medicao.split(mSep)[29].toInt(ok);
     mAvgRTT = medicao.split(mSep)[25].toInt(ok + 1);
     mDeviceID = medicao.split(mSep)[6].toInt(ok + 2);
@@ -85,6 +79,15 @@ bool ValidacaoCamposEsperadosHDM::parametroValido(const QString &medicao)
     for(size_t i = 0; i < 6; ++i)
         if(!*(ok+i))
             return false;
+
+    mStrDateTime = medicao.split(mSep)[0];
+
+    if(mStrDateTime.size() != 19)
+        return false;
+
+    if(!(mStrDateTime[4] == '-' && mStrDateTime[7] == '-' &&
+            mStrDateTime[13] == ':' && mStrDateTime[16] == ':'))
+        return false;
 
     return true;
 }

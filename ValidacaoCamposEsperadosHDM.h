@@ -48,13 +48,8 @@ private:
     QString mStrDateTime;
     int mDeviceID;
     int mJitter;
-    QString mMacAddress;
-    QString mManufacturer;
     int mPacketLoss;
     int mPacketSent;
-    QString mSoftwareVersion;
-    QString mSourceIPAddress;
-    QString mTestPoint;
 
     QStringList mParametros;
 
