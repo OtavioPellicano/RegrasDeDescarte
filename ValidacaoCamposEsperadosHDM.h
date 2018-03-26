@@ -39,7 +39,8 @@ public:
     ValidacaoCamposEsperadosHDM(const QString &medicao, const arquivoHDM &tipoArquivoHDM);
 
 private:
-    bool cabecalhoValido(const QString &medicao);
+    bool cabecalhoValido(const QString &medicao) throw(QString);
+    bool parametroValido(const QString &medicao);
 
 private:
     int mAvailSuccesses;
