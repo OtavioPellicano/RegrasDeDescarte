@@ -53,7 +53,7 @@ private:
     QString mStrDateTime;   //("YYYY-MM-DD HH:mm:ss")
     float mJitter;
     float mPacketLoss;
-
+    int mDown, mUp;
 
     QString mSep;
     testeTGR mTipoTesteTGR;
